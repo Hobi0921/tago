@@ -131,4 +131,4 @@ backup files you create yourself. It only goes online for two optional things:
 Cloud backup of the app's data is switched off, so your vault is never copied to Google's
 servers.
 
-<p align="center"><sub>Made by <a href="https://github.com/StenisTired">StenisTired</a>.</sub></p>
+<p align="center"><sub>Made by <a href="https://github.com/Hobi0921">Hobi0921</a>.</sub></p>
