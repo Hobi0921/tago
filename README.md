@@ -131,10 +131,4 @@ backup files you create yourself. It only goes online for two optional things:
 Cloud backup of the app's data is switched off, so your vault is never copied to Google's
 servers.
 
-## For developers
-
-Tago is written in Java with Android Views and Material 3. Build notes, the security design and
-open ideas are in [DEVELOPMENT.md](DEVELOPMENT.md). Releases are built and signed by GitHub
-Actions when a version tag is pushed; see [RELEASING.md](RELEASING.md).
-
 <p align="center"><sub>Made by <a href="https://github.com/StenisTired">StenisTired</a>.</sub></p>
