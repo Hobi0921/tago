@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tago logo guide</title>
+<style>
+  @page { size: A4; margin: 14mm; }
+  :root { --indigo: #5B56A6; --coral: #F0623A; --ink: #1E1B26; --paper: #FFF7F4; --muted: #6E6A78; --line: #E6E1EA; }
+  * { box-sizing: border-box; }
+  body { margin: 0 auto; max-width: 820px; padding: 24px 16px; color: var(--ink);
+         font: 11.5pt/1.45 "Segoe UI", system-ui, sans-serif; background: #fff; }
+  h1 { font-size: 22pt; margin: 6px 0 2px; letter-spacing: -0.01em; }
+  h2 { font-size: 12.5pt; margin: 18px 0 6px; padding-top: 10px; border-top: 1px solid var(--line); }
+  p, li { margin: 0 0 6px; }
+  ul { padding-left: 18px; margin: 0; }
+  .muted { color: var(--muted); }
+  .row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .tile { border-radius: 10px; padding: 12px 16px; display: grid; place-items: center; }
+  table { border-collapse: collapse; width: 100%; font-size: 10.5pt; }
+  th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  th { color: var(--muted); font-weight: 600; }
+  .chip { display: inline-block; width: 16px; height: 16px; border-radius: 4px; vertical-align: -3px; margin-right: 6px; border: 1px solid #0001; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .no { color: #A3321F; }
+  /* Print: never strand a heading at the bottom of a page. */
+  .cols, table { break-inside: avoid; }
+  h2 { break-after: avoid; }
+</style></head>
+<body>
+  <img src="../svg/tago-horizontal-color.svg" height="64" alt="Tago">
+  <h1>Logo guide</h1>
+  <p class="muted">Tago (formerly PassVault). One page, for anyone putting the logo on something.</p>
+
+  <h2>1. The logo</h2>
+  <p><b>Idea:</b> a T traced on Android's nine-dot unlock grid. The secret pattern only you know becomes the app's
+  initial; the coral dot is where the trace starts. <i>Tago</i> is Tagalog for "hidden, kept out of sight".</p>
+  <div class="row" style="margin-top:8px">
+    <div class="tile" style="background:var(--paper)"><img src="../svg/tago-horizontal-color.svg" height="44" alt=""></div>
+    <div class="tile" style="background:var(--paper)"><img src="../svg/tago-stacked-color.svg" height="74" alt=""></div>
+    <div class="tile" style="background:var(--paper)"><img src="../svg/tago-symbol-color.svg" height="56" alt=""></div>
+    <div class="tile" style="background:var(--ink)"><img src="../svg/tago-horizontal-reversed-color.svg" height="44" alt=""></div>
+  </div>
+  <p class="muted" style="margin-top:6px">Horizontal (primary) · stacked · symbol · reversed. Use the symbol alone only where the
+  name is already present (app icon, favicon, avatar).</p>
+
+  <div class="cols">
+    <div>
+      <h2>2. Clear space</h2>
+      <p>Keep a clear zone of <b>one node</b> on every side: the diameter of one of the large dots in the T.
+      It scales with the logo, so measure it on the artwork at the size you use.</p>
+    </div>
+    <div>
+      <h2>3. Minimum size</h2>
+      <table>
+        <tr><th>Version</th><th>Screen</th><th>Print</th></tr>
+        <tr><td>Horizontal</td><td>96 px wide</td><td>25 mm wide</td></tr>
+        <tr><td>Symbol</td><td>24 px; below that, the <b>small</b> files (to 16 px)</td><td>6 mm</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>4. Colour</h2>
+  <table>
+    <tr><th>Name</th><th>HEX</th><th>RGB</th><th>CMYK (converted)</th><th>Use</th></tr>
+    <tr><td><span class="chip" style="background:#5B56A6"></span>Tago Indigo</td><td>#5B56A6</td><td>91 86 166</td><td>45 48 0 35</td><td>Symbol, app icon, buttons</td></tr>
+    <tr><td><span class="chip" style="background:#F0623A"></span>Coral</td><td>#F0623A</td><td>240 98 58</td><td>0 59 76 6</td><td>Start node and main actions only</td></tr>
+    <tr><td><span class="chip" style="background:#1E1B26"></span>Ink</td><td>#1E1B26</td><td>30 27 38</td><td>21 29 0 85</td><td>Wordmark, text, dark backgrounds</td></tr>
+    <tr><td><span class="chip" style="background:#FFF7F4"></span>Paper</td><td>#FFF7F4</td><td>255 247 244</td><td>0 3 4 0</td><td>Backgrounds, reversed logo</td></tr>
+  </table>
+  <p class="muted" style="margin-top:6px"><b>Approved pairs:</b> colour logo on paper or white · paper logo on ink · white logo on
+  indigo · black or white one-colour anywhere else. CMYK values are converted, not proofed: proof with your printer, and
+  ask them to match a Pantone from a bridge guide if you need a spot colour.</p>
+
+  <div class="cols">
+    <div>
+      <h2>5. Typography</h2>
+      <p>The wordmark is custom drawn: always use the files, never type "tago" in a font. In the app and in text, use
+      the system font (Roboto on Android; <code>sans-serif-medium</code> for headings).</p>
+    </div>
+    <div>
+      <h2>6. App icon</h2>
+      <p>One colour: paper T on indigo. No coral on the launcher icon: at that size it reads as a notification dot.
+      Android 13+ themed icons use the monochrome layer.</p>
+    </div>
+  </div>
+
+  <h2>7. Don'ts</h2>
+  <ul class="no">
+    <li>Don't stretch, squash, rotate or mirror the logo, or redraw the T as another letter.</li>
+    <li>Don't recolour outside the palette, or put coral anywhere but the start node.</li>
+    <li>Don't add shadows, outlines, gradients or glows.</li>
+    <li>Don't rearrange or resize the symbol and wordmark within a lockup.</li>
+    <li>Don't drop the unused dots: without them it is just a T.</li>
+    <li>Don't place it on busy photos without a solid indigo or ink tile behind it.</li>
+  </ul>
+
+  <h2>8. Files</h2>
+  <p><code>branding/tago/svg</code> masters (SVG, filled shapes, no fonts) · <code>branding/tago/png</code> exports, including
+  the Play Store icon (512 px) and feature graphic (1024 × 500) · <code>branding/tago/build</code> the scripts that generate
+  everything, including the app's icon drawables: change geometry or colour there, then re-run them.</p>
+</body></html>

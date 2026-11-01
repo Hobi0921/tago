@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ensureMinTouchTargetSize keeps the tap area at 48dp without inflating the
+     chip visually, so a row of these stays compact and still accessible. -->
+<com.google.android.material.chip.Chip
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Material3.Chip.Assist"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:maxWidth="160dp"
+    android:textColor="@color/text_secondary"
+    android:textSize="12.5sp"
+    app:chipBackgroundColor="@color/input"
+    app:chipMinHeight="32dp"
+    app:chipStrokeColor="@color/border_strong"
+    app:chipStrokeWidth="1dp"
+    app:ensureMinTouchTargetSize="true" />

@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Tago review</title>
+<style>
+  body { margin: 0; padding: 24px; font: 13px "Segoe UI", sans-serif; background: #fff; color: #1e1b26; }
+  .row { display: flex; gap: 24px; align-items: center; margin-bottom: 22px; flex-wrap: wrap; }
+  .tile { padding: 16px; border-radius: 12px; display: flex; gap: 18px; align-items: flex-end; }
+  .light { background: #FFF7F4; } .dark { background: #1E1B26; } .indigo { background: #5B56A6; } .white { background: #fff; border: 1px solid #eee; }
+  .px { display: flex; gap: 14px; align-items: flex-end; }
+  .round { border-radius: 50%; overflow: hidden; }
+  h3 { margin: 0 0 8px; font-size: 13px; }
+</style></head><body>
+  <h3>Horizontal: colour on paper · reversed on ink · reversed on indigo · black</h3>
+  <div class="row">
+    <div class="tile light"><img src="../svg/tago-horizontal-color.svg" height="96"></div>
+    <div class="tile dark"><img src="../svg/tago-horizontal-reversed-color.svg" height="96"></div>
+    <div class="tile indigo"><img src="../svg/tago-horizontal-white.svg" height="96"></div>
+    <div class="tile white"><img src="../svg/tago-horizontal-black.svg" height="96"></div>
+  </div>
+  <h3>Wordmark large (letter shapes and spacing)</h3>
+  <div class="row"><div class="tile white"><img src="../svg/tago-wordmark-ink.svg" height="200"></div>
+    <div class="tile white"><img src="../svg/tago-stacked-color.svg" height="200"></div>
+    <div class="tile dark"><img src="../svg/tago-stacked-white.svg" height="200"></div></div>
+  <h3>Symbol sizes: regular 64/48/32 · small cut 32/24/16 · regular at 24/16 for comparison</h3>
+  <div class="row"><div class="tile white px">
+    <img src="../svg/tago-symbol-color.svg" width="64"><img src="../svg/tago-symbol-color.svg" width="48"><img src="../svg/tago-symbol-color.svg" width="32">
+    <span style="width:20px"></span>
+    <img src="../svg/tago-symbol-small-color.svg" width="32"><img src="../svg/tago-symbol-small-color.svg" width="24"><img src="../svg/tago-symbol-small-color.svg" width="16">
+    <span style="width:20px"></span>
+    <img src="../svg/tago-symbol-color.svg" width="24"><img src="../svg/tago-symbol-color.svg" width="16">
+  </div>
+  <div class="tile dark px">
+    <img src="../svg/tago-symbol-reversed-color.svg" width="64"><img src="../svg/tago-symbol-small-white.svg" width="24"><img src="../svg/tago-symbol-small-white.svg" width="16">
+  </div></div>
+  <h3>App icon: launcher circle 96/48, squircle, greyscale</h3>
+  <div class="row">
+    <img class="round" src="../svg/tago-app-icon-512.svg" width="96"><img class="round" src="../svg/tago-app-icon-512.svg" width="48">
+    <img class="round" src="../svg/tago-app-icon-512.svg" width="96"><img class="round" src="../svg/tago-app-icon-512.svg" width="48">
+    <img src="../svg/tago-app-icon-512.svg" width="96" style="border-radius:24px">
+    <img src="../svg/tago-app-icon-512.svg" width="96" style="filter:grayscale(1);border-radius:50%">
+  </div>
+</body></html>

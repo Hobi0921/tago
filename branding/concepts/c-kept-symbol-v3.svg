@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Kept, concept C: a lowercase k that keeps a dot inside its arm</title>
+  <!-- v3: bigger arm loop so it can hold the one ownable detail, a dot (the masked-password
+       character) kept inside. Teardrop tip P(80,156) on the stem; round end on circle
+       (158,100) r=44; exact tangents to (118.82,79.99) and (164.43,143.52). Monoline 30, so the
+       counter has an inner radius of 29; dot r=10 leaves a 19-unit gap (about 1.2 px at 16 px).
+       Leg at 45 degrees from the arm's lower edge. Shifted 4 left to centre the bounds. -->
+  <g id="symbol" transform="translate(-4 0)">
+    <g fill="none" stroke="#111111" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M72 32V224"/>
+      <path d="M80 156L118.82 79.99A44 44 0 1 1 164.43 143.52Z"/>
+      <path d="M110 164L170 224"/>
+    </g>
+    <circle cx="158" cy="100" r="10" fill="#111111"/>
+  </g>
+</svg>

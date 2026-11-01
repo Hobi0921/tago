@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark palette. The shot only has a light theme; a password manager gets opened in bed. -->
+<resources>
+    <color name="bg">#16141B</color>
+    <color name="surface">#211E28</color>
+    <color name="surface_peach">#2B2430</color>
+    <color name="input">#2A2733</color>
+    <color name="border">#322D3A</color>
+    <color name="border_strong">#4A4454</color>
+    <color name="accent_dim">#3A3768</color>
+
+    <color name="accent">#B3AEF5</color>
+    <color name="action">#FF7A52</color>
+    <color name="on_action">#1E1B26</color>     <!-- white on light coral fails 3:1 in the dark theme -->
+
+    <color name="text_primary">#F3EFF6</color>
+    <color name="text_secondary">#CFCAD7</color>
+    <color name="text_muted">#A29DAB</color>
+
+    <color name="danger">#FF8A73</color>
+    <color name="warning">#F2B45C</color>
+    <color name="caution">#F5C35A</color>
+    <color name="safe">#7FD3A0</color>
+
+    <color name="banner_bg">#3E3A7A</color>
+    <color name="banner_bg_wave">#4A4590</color>
+    <color name="banner_text">#FFFFFF</color>
+    <color name="banner_link">#FFD9CC</color>
+</resources>

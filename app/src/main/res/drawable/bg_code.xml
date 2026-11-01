@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Secret-bearing rows (password, 2FA code) sit on the input colour so they
+     read as "the thing you came for" against the plainer card rows. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/input" />
+    <stroke android:width="1dp" android:color="@color/border_strong" />
+    <corners android:radius="10dp" />
+</shape>

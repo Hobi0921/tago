@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tago</string>
+    <string name="autofill_service_name">Tago</string>
+
+    <!-- Unlock -->
+    <string name="unlock_tagline">Your passwords, kept out of sight.</string>
+    <string name="unlock_hint">Authenticate to open your vault.</string>
+    <string name="unlock_title">Unlock Tago</string>
+    <string name="unlock_subtitle">Use your fingerprint, face, or screen lock</string>
+    <string name="unlock_setup_hint">Set up your vault to get started.</string>
+    <string name="unlock_setup_title">Set up Tago</string>
+    <string name="unlock_setup_subtitle">This binds your vault to this device</string>
+    <string name="unlock_setup_failed">Setup did not complete. Try again.</string>
+    <string name="unlock_failed">Could not open the vault. Try again.</string>
+    <string name="unlock_cancelled">Authentication cancelled.</string>
+    <string name="unlock_setup_cancelled">Tago needs your fingerprint or screen lock to protect your vault. Tap Set up when you\'re ready.</string>
+    <string name="unlock_setup_button">Set up</string>
+    <string name="unlock_key_invalidated">Your screen lock or biometrics changed, so the vault key was invalidated. The existing vault can no longer be opened.</string>
+    <string name="unlock_button">Unlock</string>
+    <string name="unlock_retry">Try again</string>
+    <string name="unlock_recover">Start over and restore a backup</string>
+    <string name="unlock_recover_title">Start a new vault?</string>
+    <string name="unlock_recover_message">The vault on this device can no longer be opened, so it will be erased and replaced with an empty one. You can then restore your backup file from Settings.\n\nWithout a backup file, those passwords are gone.</string>
+    <string name="unlock_recover_confirm">Erase and start over</string>
+    <string name="unlock_recover_failed">Could not reset the vault. Try again.</string>
+
+    <!-- Vault -->
+    <string name="vault_search">Search your vault</string>
+    <string name="vault_empty">Nothing saved yet</string>
+    <string name="vault_empty_detail">Add your first login, or restore a backup from another device.</string>
+    <!-- Empty vault once autofill is on: the fastest way in is to just sign in somewhere. -->
+    <string name="vault_empty_detail_autofill">Sign in to any app or website and Tago will offer to save the login. Or add one here.</string>
+    <string name="vault_empty_add">Add first entry</string>
+    <string name="vault_empty_restore">Restore from backup</string>
+    <string name="vault_no_results">No entries match that search.</string>
+    <string name="vault_copied">Password copied. Clipboard clears in 45 seconds.</string>
+    <string name="vault_add">Add entry</string>
+    <string name="vault_copy">Copy password</string>
+    <string name="vault_lock">Lock vault</string>
+    <string name="vault_deleted">Deleted %1$s</string>
+    <string name="vault_favorite">Favorite</string>
+    <string name="vault_backup_reminder">Your vault has no backup. If your screen lock or fingerprints change, it cannot be recovered.</string>
+    <string name="vault_backup_action">Back up now</string>
+    <string name="vault_backup_dismiss">Dismiss reminder</string>
+    <string name="vault_autofill_title">Fill passwords in other apps</string>
+    <string name="vault_autofill_body">Turn on Tago as your autofill service, and your logins appear right in sign-in forms. New ones are offered for saving.</string>
+    <string name="vault_autofill_action">Turn on</string>
+    <string name="vault_autofill_dismiss">Not now</string>
+    <string name="vault_autofill_now_on">Autofill is on. Sign in anywhere and Tago will offer to fill or save the login.</string>
+    <string name="vault_autofill_unavailable">This phone has no autofill settings screen to open.</string>
+
+    <!-- Checker -->
+    <string name="checker_input_hint">Password to check</string>
+    <string name="checker_crack_time">Cracked in about %1$s</string>
+    <string name="checker_entropy">%1$d bits of entropy</string>
+
+    <!-- Generator -->
+    <string name="gen_copied">Copied. Clipboard clears in 45 seconds.</string>
+    <string name="gen_mode_chars">Password</string>
+    <string name="gen_mode_words">Passphrase</string>
+    <string name="gen_length">Length: %1$d</string>
+    <string name="gen_words">Words: %1$d</string>
+    <string name="gen_rating">%1$s \u00B7 cracked in about %2$s</string>
+    <string name="gen_upper">Uppercase</string>
+    <string name="gen_lower">Lowercase</string>
+    <string name="gen_digits">Numbers</string>
+    <string name="gen_symbols">Symbols</string>
+    <string name="gen_ambiguous">Skip look-alike characters</string>
+    <string name="gen_words_number">End with a number</string>
+    <string name="gen_last_set">Keep at least one character type on.</string>
+    <string name="gen_regenerate">Generate again</string>
+    <string name="gen_copy">Copy</string>
+    <string name="gen_save">Save to vault</string>
+
+    <!-- Editor -->
+    <string name="editor_add_title">New entry</string>
+    <string name="editor_edit_title">Edit entry</string>
+    <string name="editor_site">Site or app name</string>
+    <string name="editor_username">Username or email</string>
+    <string name="editor_password">Password</string>
+    <string name="editor_domain">Web domain</string>
+    <string name="editor_domain_helper">Used to match this login in your browser, e.g. github.com</string>
+    <string name="editor_generate">Generate</string>
+    <string name="editor_totp_helper">Paste the setup key or otpauth:// link from the site\u2019s 2FA settings</string>
+    <string name="editor_notes">Notes</string>
+    <string name="editor_section_login">Login</string>
+    <string name="editor_section_extra">Extras</string>
+    <string name="editor_error_password">Enter a password, or tap Generate.</string>
+    <string name="editor_error_label">Add a site name or a username so you can find this later.</string>
+    <string name="editor_error_totp">That doesn\u2019t look like a 2FA key. Check for missing characters.</string>
+    <string name="editor_strength">%1$s \u00B7 cracked in about %2$s</string>
+    <string name="editor_discard_title">Discard changes?</string>
+    <string name="editor_discard_message">Your edits to this entry will be lost.</string>
+    <string name="editor_discard">Discard</string>
+    <string name="editor_keep_editing">Keep editing</string>
+
+    <!-- Entry detail -->
+    <string name="detail_username">Username</string>
+    <string name="detail_password">Password</string>
+    <string name="detail_totp">2FA code</string>
+    <string name="detail_notes">Notes</string>
+    <string name="detail_history">Previous passwords</string>
+    <string name="detail_history_item">Replaced %1$s</string>
+    <string name="detail_changed">%1$s \u00B7 changed %2$s</string>
+    <string name="detail_changed_just_now">just now</string>
+    <string name="detail_reveal">Show password</string>
+    <string name="detail_hide">Hide password</string>
+    <string name="detail_copy_username">Copy username</string>
+    <string name="detail_copy_totp">Copy 2FA code</string>
+    <string name="detail_copy_old">Copy previous password</string>
+    <string name="detail_edit">Edit</string>
+    <string name="detail_delete">Delete</string>
+    <string name="detail_favorite_add">Add to favorites</string>
+    <string name="detail_favorite_remove">Remove from favorites</string>
+    <string name="detail_username_copied">Username copied.</string>
+    <string name="detail_totp_copied">Code copied. Clipboard clears in 45 seconds.</string>
+    <string name="detail_old_copied">Previous password copied. Clipboard clears in 45 seconds.</string>
+    <string name="detail_totp_invalid">This 2FA key can\u2019t produce a code. Edit the entry to fix it.</string>
+
+    <!-- Autofill -->
+    <string name="autofill_unlock">Unlock Tago</string>
+    <string name="autofill_unlock_subtitle">Authenticate to fill your credentials</string>
+    <string name="autofill_save_failed">Tago could not read that password.</string>
+    <string name="autofill_save_locked">Unlock Tago to save this password.</string>
+
+    <!-- Shared actions -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_close">Close</string>
+
+    <!-- Health -->
+    <string name="health_title">Vault health</string>
+    <string name="health_score">%1$d</string>
+    <string name="health_clean">Nothing needs attention.</string>
+    <string name="health_empty">Add some entries and Tago will audit them here.</string>
+    <string name="health_check_breaches">Check for breaches</string>
+    <string name="health_checking">Checking\u2026</string>
+    <string name="health_offline">Could not reach the breach database. Results below exclude that check.</string>
+    <string name="health_privacy">Only the first 5 characters of each password\u2019s SHA-1 are sent. The password itself never leaves this device.</string>
+    <string name="health_affects">Affects %1$d</string>
+    <string name="health_issue_summary">%1$s across %2$s</string>
+    <string name="health_and_more">and %1$d more</string>
+
+    <!-- Settings / backup -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_backup_heading">Backup</string>
+    <string name="settings_export">Export encrypted backup</string>
+    <string name="settings_import">Restore from backup</string>
+    <string name="settings_backup_why">Adding a fingerprint or changing your screen lock destroys the vault key, and the database cannot be recovered. An export is the only way back.</string>
+    <string name="settings_backup_never">No backup yet</string>
+    <string name="settings_backup_last">Last backup %1$s</string>
+    <string name="settings_lock_heading">Security</string>
+    <string name="settings_autolock">Lock after</string>
+    <string name="settings_autolock_immediately">Immediately</string>
+    <string name="settings_autolock_30s">30 seconds</string>
+    <string name="settings_autolock_1m">1 minute</string>
+    <string name="settings_autolock_5m">5 minutes</string>
+    <string name="settings_autolock_15m">15 minutes</string>
+    <string name="settings_autolock_summary">Time in the background before the vault locks itself.</string>
+    <string name="settings_autofill_heading">Autofill</string>
+    <string name="settings_autofill_on">Tago fills your logins in other apps.</string>
+    <string name="settings_autofill_off">Turn on autofill to have Tago fill your logins in other apps.</string>
+    <string name="settings_autofill_enable">Turn on autofill</string>
+    <string name="settings_autofill_unsupported">This device has no autofill settings to open.</string>
+    <string name="settings_lock_now">Lock vault now</string>
+
+
+    <string name="passphrase_export_title">Choose a backup passphrase</string>
+    <string name="passphrase_export_hint">You will need this to restore. It is not recoverable.</string>
+    <string name="passphrase_import_title">Enter backup passphrase</string>
+    <string name="passphrase_hint">Passphrase</string>
+    <string name="passphrase_confirm_hint">Repeat passphrase</string>
+    <string name="passphrase_mismatch">The two passphrases do not match.</string>
+    <string name="passphrase_too_short">Use at least 12 characters.</string>
+
+    <string name="export_done">Backup written. Keep it somewhere safe.</string>
+    <string name="export_failed">Could not write the backup.</string>
+    <string name="import_done">Restored %1$d entries.</string>
+    <string name="import_wrong_passphrase">Wrong passphrase, or the file has been modified.</string>
+    <string name="import_failed">Could not read that file.</string>
+
+    <!-- TOTP -->
+    <string name="editor_totp">2FA setup key (optional)</string>
+    <string name="totp_code">%1$s</string>
+    <string name="totp_seconds">%1$ds</string>
+
+    <!-- Nav -->
+    <string name="nav_vault">Vault</string>
+    <string name="nav_health">Health</string>
+    <string name="nav_check">Check</string>
+    <string name="nav_generate">Generate</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Order must match AppPrefs.AUTO_LOCK_CHOICES. -->
+    <string-array name="settings_autolock_labels">
+        <item>@string/settings_autolock_immediately</item>
+        <item>@string/settings_autolock_30s</item>
+        <item>@string/settings_autolock_1m</item>
+        <item>@string/settings_autolock_5m</item>
+        <item>@string/settings_autolock_15m</item>
+    </string-array>
+
+    <plurals name="settings_entry_count">
+        <item quantity="one">%d entry in this vault</item>
+        <item quantity="other">%d entries in this vault</item>
+    </plurals>
+    <plurals name="health_issue_count">
+        <item quantity="one">%d issue</item>
+        <item quantity="other">%d issues</item>
+    </plurals>
+    <plurals name="health_entry_count">
+        <item quantity="one">%d entry</item>
+        <item quantity="other">%d entries</item>
+    </plurals>
+</resources>

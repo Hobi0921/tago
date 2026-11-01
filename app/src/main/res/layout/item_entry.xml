@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Redesigned row: no card per row (the shot's clean list), tinted initial avatar, site +
+     username. Tap anywhere to open the entry. Delete moved into the detail sheet: next to
+     the copy button it was one mis-tap away from losing a login.
+     Real site logos come straight from each site (never a third-party icon service) and can be
+     switched off in Settings; see SiteIcons.java. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="72dp"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="0dp"
+    android:paddingBottom="10dp">
+
+    <!-- Avatar: the site's real logo on a soft brand-tinted circle (Avatars + SiteIcons),
+         with the coloured initial underneath as the fallback. -->
+    <FrameLayout
+        android:id="@+id/entryAvatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_avatar"
+        android:importantForAccessibility="no">
+
+        <TextView
+            android:id="@+id/entryInitial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textSize="18dp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/entryIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.PassVault.SiteIcon" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/entrySite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/entryFavorite"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/vault_favorite"
+                android:src="@drawable/ic_star"
+                android:visibility="gone"
+                app:tint="@color/caution" />
+        </LinearLayout>
+
+        <!-- Username and the strength flag share a line; the flag never wraps or squeezes. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/entryUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_muted"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/entryStrength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:maxLines="1"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 48dp: the Material minimum touch target. The old 42dp buttons were under it. -->
+    <ImageButton
+        android:id="@+id/entryCopy"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/vault_copy"
+        android:padding="12dp"
+        android:src="@drawable/ic_copy"
+        app:tint="@color/text_secondary" />
+</LinearLayout>

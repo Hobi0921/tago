@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Tago, concept A: a T traced on the nine-dot unlock grid</title>
+  <!-- Grid: dots at 64/128/192 on both axes. Traced path 1-2-3, then 2-5-8; 24-unit stroke,
+       active nodes r=24, idle dots r=10 (they may drop out at 16 px; the T must not). -->
+  <g id="symbol" fill="#111111">
+    <circle cx="64" cy="128" r="10"/>
+    <circle cx="192" cy="128" r="10"/>
+    <circle cx="64" cy="192" r="10"/>
+    <circle cx="192" cy="192" r="10"/>
+    <path d="M64 64H192M128 64V192" fill="none" stroke="#111111" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="64" cy="64" r="24"/>
+    <circle cx="128" cy="64" r="24"/>
+    <circle cx="192" cy="64" r="24"/>
+    <circle cx="128" cy="128" r="24"/>
+    <circle cx="128" cy="192" r="24"/>
+  </g>
+</svg>

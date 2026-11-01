@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Site icons: shape, view-tag id and Settings strings. New names only; copy as-is. -->
+<resources>
+    <!-- Square app-style icons (apple-touch-icon) get softly rounded corners, like the shot. -->
+    <style name="ShapeAppearance.PassVault.SiteIcon" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">22%</item>
+    </style>
+
+    <item name="tag_site_icon" type="id" />
+
+    <string name="settings_privacy_heading">Privacy</string>
+    <string name="settings_site_icons">Show website icons</string>
+    <string name="settings_site_icons_summary">Downloads each saved site\'s icon directly from that site. No other service is involved. Turn off to keep Tago offline apart from breach checks.</string>
+</resources>

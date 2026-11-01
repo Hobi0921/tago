@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Kept, concept C: a lowercase k whose arm closes into a loop</title>
+  <!-- One 36-unit monoline: stem x=62 from y=40 to 216; loop circle (132,138) r=40 touching the
+       stem; leg from the loop's 45-degree point out to (202,216). Exploration strokes; expand
+       for the master. -->
+  <g id="symbol" fill="none" stroke="#111111" stroke-width="36" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M62 40V216"/>
+    <circle cx="132" cy="138" r="40"/>
+    <path d="M160.3 166.3L202 216"/>
+  </g>
+</svg>

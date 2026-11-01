@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Type for the redesign. Tracking is size-specific (letterSpacing is in em):
+     negative on big numbers/titles, zero on body, slightly positive on small labels. -->
+<resources>
+    <style name="TextAppearance.PassVault.ScreenTitle" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.PassVault.Hero" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">-0.015</item>
+        <item name="android:lineSpacingMultiplier">1.12</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.PassVault.StatNumber" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <style name="TextAppearance.PassVault.StatLabel" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.PassVault.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:lineSpacingMultiplier">1.45</item>
+    </style>
+
+    <!-- Floating pill nav -->
+    <style name="Widget.PassVault.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@drawable/bg_nav_pill</item>
+        <item name="itemIconTint">@drawable/nav_tint</item>
+        <item name="itemTextColor">@drawable/nav_tint</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.PassVault.NavIndicator</item>
+        <item name="elevation">0dp</item>
+    </style>
+    <style name="Widget.PassVault.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/input</item>
+    </style>
+
+    <!-- Big rounded primary button (onboarding "Continue") -->
+    <style name="Widget.PassVault.Button.Pill" parent="Widget.Material3.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/bg</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="backgroundTint">@color/accent</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:stateListAnimator">@animator/press_scale</item>
+    </style>
+</resources>

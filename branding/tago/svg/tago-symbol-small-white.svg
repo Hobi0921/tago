@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Tago symbol, small sizes, reversed</title>
+  <g id="symbol">
+    <path fill="#FFFFFF" d="M64 46H192V82H64ZM110 64H146V192H110ZM102 64A26 26 0 1 1 154 64A26 26 0 1 1 102 64ZM166 64A26 26 0 1 1 218 64A26 26 0 1 1 166 64ZM102 128A26 26 0 1 1 154 128A26 26 0 1 1 102 128ZM102 192A26 26 0 1 1 154 192A26 26 0 1 1 102 192ZM48 128A16 16 0 1 1 80 128A16 16 0 1 1 48 128ZM176 128A16 16 0 1 1 208 128A16 16 0 1 1 176 128ZM48 192A16 16 0 1 1 80 192A16 16 0 1 1 48 192ZM176 192A16 16 0 1 1 208 192A16 16 0 1 1 176 192Z"/>
+    <path fill="#FFFFFF" d="M38 64A26 26 0 1 1 90 64A26 26 0 1 1 38 64Z"/>
+  </g>
+</svg>

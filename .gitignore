@@ -1,0 +1,22 @@
+*.iml
+.gradle/
+.idea/
+build/
+local.properties
+.DS_Store
+captures/
+*.apk
+
+# Backups contain your real vault. Never commit one.
+*.pvault.json
+
+# Release signing keys stay on your machine and in GitHub secrets, never in the repo.
+*.jks
+*.keystore
+
+# Windows folder settings
+desktop.ini
+
+# "build/" above would also hide the brand scripts in branding/tago/build: keep them.
+!/branding/tago/build/
+/branding/tago/build/tmp/

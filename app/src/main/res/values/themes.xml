@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- DayNight, not Dark: values/colors.xml is the light palette and values-night/ the dark
+         one. On the old Dark parent, light mode drew white status-bar icons on a white bar and
+         took every role not set here (field labels, outlines, dialog surfaces) from the dark
+         baseline, e.g. #CAC4D0 labels on the off-white page (1.6:1). -->
+    <style name="Theme.PassVault" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">@color/bg</item>
+        <item name="colorPrimaryContainer">@color/accent_dim</item>
+        <item name="colorOnPrimaryContainer">@color/accent</item>
+        <item name="colorSecondary">@color/accent_dim</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/input</item>
+        <item name="colorOnSurfaceVariant">@color/text_muted</item>
+        <item name="colorOutline">@color/border_strong</item>
+        <item name="colorOutlineVariant">@color/border</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorError">@color/danger</item>
+        <item name="android:colorBackground">@color/bg</item>
+
+        <!-- Dialogs, menus and sheets read these. -->
+        <item name="colorSurfaceContainerLowest">@color/surface</item>
+        <item name="colorSurfaceContainerLow">@color/surface</item>
+        <item name="colorSurfaceContainer">@color/surface</item>
+        <item name="colorSurfaceContainerHigh">@color/surface</item>
+        <item name="colorSurfaceContainerHighest">@color/input</item>
+
+        <!-- Snackbars: an inverse surface, with an action colour that reads on it. -->
+        <item name="colorSurfaceInverse">@color/surface_inverse</item>
+        <item name="colorOnSurfaceInverse">@color/on_surface_inverse</item>
+        <item name="colorPrimaryInverse">@color/accent_inverse</item>
+
+        <!-- Status bar matches the toolbar (no seam), icons dark in light mode. -->
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowLightStatusBar">@bool/light_system_bars</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">@bool/light_system_bars</item>
+
+        <!-- Material 3 uses these for the bottom-nav active pill and checked
+             toggle buttons. Unset, they fall back to the baseline purple. -->
+        <item name="colorSecondaryContainer">@color/border_strong</item>
+        <item name="colorOnSecondaryContainer">@color/accent</item>
+    </style>
+
+    <!-- Full-screen editor. A normal theme (not an overlay) so the window is
+         opaque, fills the screen and resizes above the keyboard. -->
+    <style name="Theme.PassVault.FullScreenDialog" parent="Theme.PassVault">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowAnimationStyle">@style/Animation.PassVault.SlideUp</item>
+    </style>
+
+    <style name="Animation.PassVault.SlideUp" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="DetailLabel">
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DetailValue">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Theme.PassVault.Transparent" parent="Theme.PassVault">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="MutedLabel">
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

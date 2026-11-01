@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Redesigned health screen. Same ids your fragment already uses (healthScore, healthVerdict,
+     healthOffline, healthFindings, healthCheckBreaches) plus the ring and the four stats. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:clipToPadding="false"
+    android:paddingStart="16dp"
+    android:paddingTop="4dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- The score is the hook; the verdict underneath is what gets acted on,
+             so the sentence sits right under the ring rather than in a corner. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_health_header"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Ring + number. The number is sized in dp on purpose: it lives inside a fixed
+                 168dp graphic, and "100" in sp overflowed the ring at the largest font size.
+                 The whole frame reads as one sentence to TalkBack (set in HealthHeader). -->
+            <FrameLayout
+                android:id="@+id/healthRingFrame"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="12dp"
+                android:focusable="true">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_ring_halo"
+                    android:importantForAccessibility="no" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/healthRing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:max="100"
+                    app:indicatorColor="@color/action"
+                    app:indicatorSize="168dp"
+                    app:trackColor="@color/ring_track"
+                    app:trackCornerRadius="6dp"
+                    app:trackThickness="12dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="noHideDescendants"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/healthScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFeatureSettings="tnum"
+                        android:includeFontPadding="false"
+                        android:letterSpacing="-0.03"
+                        android:textColor="@color/text_primary"
+                        android:textSize="48dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:letterSpacing="0.02"
+                        android:text="@string/health_score_label"
+                        android:textColor="@color/text_muted"
+                        android:textSize="13dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/healthVerdict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.35"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <!-- Stats. Numbers auto-shrink rather than truncate ("1,284" at 200% font).
+                 Each cell is tappable and scrolls to its finding: a number tells you a
+                 problem exists, a tap takes you to the thing you must fix. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/healthCellCompromised"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:minHeight="64dp"
+                        android:orientation="vertical"
+                        android:paddingStart="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/healthStatCompromised"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical|start"
+                            android:importantForAccessibility="no"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatNumber"
+                            app:autoSizeMaxTextSize="26sp"
+                            app:autoSizeMinTextSize="14sp"
+                            app:autoSizeStepGranularity="1sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:importantForAccessibility="no"
+                            android:text="@string/health_stat_compromised"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatLabel"
+                            android:textColor="@color/danger" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/healthCellWeak"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:minHeight="64dp"
+                        android:orientation="vertical"
+                        android:paddingStart="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/healthStatWeak"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical|start"
+                            android:importantForAccessibility="no"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatNumber"
+                            app:autoSizeMaxTextSize="26sp"
+                            app:autoSizeMinTextSize="14sp"
+                            app:autoSizeStepGranularity="1sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:importantForAccessibility="no"
+                            android:text="@string/health_stat_weak"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatLabel"
+                            android:textColor="@color/warning" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/healthCellReused"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:minHeight="64dp"
+                        android:orientation="vertical"
+                        android:paddingStart="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/healthStatReused"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical|start"
+                            android:importantForAccessibility="no"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatNumber"
+                            app:autoSizeMaxTextSize="26sp"
+                            app:autoSizeMinTextSize="14sp"
+                            app:autoSizeStepGranularity="1sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:importantForAccessibility="no"
+                            android:text="@string/health_stat_reused"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatLabel"
+                            android:textColor="@color/warning" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/healthCellSafe"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:minHeight="64dp"
+                        android:orientation="vertical"
+                        android:paddingStart="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/healthStatSafe"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical|start"
+                            android:importantForAccessibility="no"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatNumber"
+                            app:autoSizeMaxTextSize="26sp"
+                            app:autoSizeMinTextSize="14sp"
+                            app:autoSizeStepGranularity="1sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:importantForAccessibility="no"
+                            android:text="@string/health_stat_safe"
+                            android:textAppearance="@style/TextAppearance.PassVault.StatLabel"
+                            android:textColor="@color/safe" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/healthOffline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card"
+            android:lineSpacingMultiplier="1.3"
+            android:padding="14dp"
+            android:text="@string/health_offline"
+            android:textColor="@color/warning"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/healthFindingsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="24dp"
+            android:accessibilityHeading="true"
+            android:text="@string/health_findings_title"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <LinearLayout
+            android:id="@+id/healthFindings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical" />
+
+        <Button
+            android:id="@+id/healthCheckBreaches"
+            style="@style/Widget.PassVault.Button.Pill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/health_check_breaches" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="4dp"
+            android:lineSpacingMultiplier="1.35"
+            android:text="@string/health_privacy"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

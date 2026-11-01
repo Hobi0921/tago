@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PassVault redesign palette (light). Same colour NAMES your layouts already use, new values,
+     so every existing screen re-themes at once. Merge into your colors.xml: replace the values of
+     names that match, add the new ones, keep any names this file doesn't list.
+     Every text/background pair here is checked at WCAG AA (4.5:1) or better. -->
+<resources>
+    <!-- Surfaces -->
+    <color name="bg">#FFF7F4</color>            <!-- warm off-white page -->
+    <color name="surface">#FFFFFF</color>       <!-- cards, sheets, nav pill -->
+    <color name="surface_peach">#FDEBE4</color> <!-- health header, onboarding art -->
+    <color name="input">#F3F1FA</color>         <!-- search field, chips -->
+    <color name="border">#F1E4DF</color>
+    <color name="border_strong">#D9CCD0</color>
+    <color name="accent_dim">#E6E4F5</color>   <!-- soft indigo tint -->
+    <color name="good">@color/safe</color>
+
+    <!-- Brand -->
+    <color name="accent">#5B56A6</color>        <!-- indigo: primary buttons, links, secrets text -->
+    <color name="action">#F0623A</color>        <!-- coral: FAB, score ring (icons/graphics only, not text) -->
+    <color name="on_action">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1E1B26</color>
+    <color name="text_secondary">#4A4656</color>
+    <color name="text_muted">#6E6A78</color>
+
+    <!-- Status -->
+    <color name="danger">#C2331B</color>
+    <color name="warning">#9A5200</color>
+    <color name="caution">#B77900</color>       <!-- favourite star: icon only -->
+    <color name="safe">#2A7449</color>
+
+    <!-- Breach banner -->
+    <color name="banner_bg">#5B56A6</color>
+    <color name="banner_bg_wave">#6C67B8</color>
+    <color name="banner_text">#FFFFFF</color>
+    <color name="banner_link">#FFD9CC</color>
+</resources>

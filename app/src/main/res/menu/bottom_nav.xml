@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Four tabs: Check and Generate now share a Tools tab. Check also used the
+     same padlock icon as the lock button, which read as "lock". -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_vault"    android:icon="@drawable/ic_nav_vault"    android:title="@string/nav_vault" />
+    <item android:id="@+id/nav_health"   android:icon="@drawable/ic_nav_health"   android:title="@string/nav_health" />
+    <item android:id="@+id/nav_tools"    android:icon="@drawable/ic_nav_tools"    android:title="@string/nav_tools" />
+    <item android:id="@+id/nav_settings" android:icon="@drawable/ic_nav_settings" android:title="@string/nav_settings" />
+</menu>

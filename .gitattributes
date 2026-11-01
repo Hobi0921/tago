@@ -1,0 +1,5 @@
+# gradlew runs on Linux in the release workflow: it must keep Unix line endings there.
+gradlew text eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jks binary

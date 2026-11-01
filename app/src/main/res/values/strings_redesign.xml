@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Merge into strings.xml. Real copy instead of the shot's lorem ipsum: it says what
+     PassVault actually does (local, encrypted, only you can unlock it). -->
+<resources>
+    <!-- Onboarding -->
+    <string name="onboarding_title">Never forget a password again</string>
+    <string name="onboarding_body">Tago keeps every login encrypted on this phone. Only you can unlock it: not us, and not the cloud.</string>
+    <string name="onboarding_continue">Set up Tago</string>
+    <string name="onboarding_next">Next, Tago asks for your fingerprint or screen lock. That\'s what unlocks it from then on.</string>
+    <string name="onboarding_restore">I have a backup</string>
+
+    <!-- Screen titles (toolbar) -->
+    <string name="title_vault">Passwords</string>
+    <string name="title_health">Password health</string>
+    <string name="title_tools">Tools</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- Health -->
+    <string name="health_score_label">Score</string>
+    <string name="health_score_a11y">Health score %1$d out of 100</string>
+    <string name="health_stat_compromised">Compromised</string>
+    <string name="health_stat_weak">Weak</string>
+    <string name="health_stat_reused">Reused</string>
+    <string name="health_stat_safe">Safe</string>
+    <string name="health_findings_title">What to fix</string>
+
+    <!-- Vault breach banner -->
+    <string name="vault_breach_details">See details</string>
+</resources>

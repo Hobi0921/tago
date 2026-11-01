@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Light values; dark ones in values-night/colors_fixes.xml. -->
+<resources>
+    <!-- Snackbar (inverse surface). Action on it: 6.4:1. -->
+    <color name="surface_inverse">#322F3A</color>
+    <color name="on_surface_inverse">#F3EFF6</color>
+    <color name="accent_inverse">#B3AEF5</color>
+
+    <!-- Strength ratings, used as 12-17sp text on bg and surface: each is 5:1 or better on
+         #FFF7F4. The old fixed colours were dark-theme values (Fair #F1C40F was 1.6:1 here). -->
+    <color name="strength_very_weak">#C2331B</color>
+    <color name="strength_weak">#A84A00</color>
+    <color name="strength_fair">#8A6100</color>
+    <color name="strength_strong">#2A7449</color>
+    <color name="strength_very_strong">#00736A</color>
+</resources>

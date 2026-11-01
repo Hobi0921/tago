@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Delight review</title>
+<style>
+  body { margin: 0; padding: 20px; font: 12px "Segoe UI", sans-serif; background: #fff; color: #1e1b26; }
+  .row { display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 18px; }
+  .cap { color: #6e6a78; margin-top: 4px; }
+  .peach { background: #FDEBE4; } .ink { background: #16141B; } .paper { background: #FFF7F4; }
+  .box { padding: 10px; border-radius: 10px; }
+</style></head><body>
+<div class="row">
+  <div><div class="box peach"><img id="light" width="300"></div><div class="cap">Welcome art, light (on peach)</div></div>
+  <div><div class="box ink"><img id="dark" width="300"></div><div class="cap">Welcome art, dark</div></div>
+  <div><div class="box paper"><img id="empty" width="160" height="133"></div><div class="cap">Empty vault, 160 dp</div></div>
+</div>
+<div class="row">
+  <div><div class="box paper" id="frames"></div><div class="cap">Welcome trace at 0 / 30 / 60 / 100% (standard curve over 700 ms)</div></div>
+</div>
+<div class="row">
+  <div><div class="box paper"><img id="idle" width="40"></div><div class="cap">No results, 40 dp</div></div>
+  <div><div class="box paper" id="trace"></div><div class="cap">Generator glyph at 36 dp: 0.35, 0.7, done (+ two other patterns)</div></div>
+  <div><div class="box ink" id="traceDark"></div><div class="cap">dark</div></div>
+</div>
+<script>
+const art = SVG_ART;
+const pal = (svg, p) => svg.replaceAll('#D9CCD0', p.b).replaceAll('#5B56A6', p.a).replaceAll('#F0623A', p.c);
+const uri = (s) => 'data:image/svg+xml;utf8,' + encodeURIComponent(s);
+const light = { b: '#D9CCD0', a: '#5B56A6', c: '#F0623A' }, dark = { b: '#4A4454', a: '#B3AEF5', c: '#FF7A52' };
+document.getElementById('light').src = uri(pal(art, light));
+document.getElementById('dark').src = uri(pal(art, dark));
+document.getElementById('empty').src = uri(pal(art, light));
+// trace frames via dash offset on the trace path (length: 96 across + 96 down = 192)
+const frames = document.getElementById('frames');
+for (const t of [0, 0.3, 0.6, 1]) {
+  const eased = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+  const s = pal(art, light).replace('d="M132,68H228M180,68V164"', `d="M132,68H228M180,68V164" stroke-dasharray="${192*eased} 400"`);
+  const img = new Image(); img.width = 150; img.src = uri(s); frames.appendChild(img);
+}
+document.getElementById('idle').src = uri(SVG_IDLE);
+// TraceView port: same proportions as onDraw.
+function glyph(pattern, progress, p) {
+  const cell = 12, line = cell * 0.32, node = line * 0.8, idle = node * 0.5;
+  const X = (i) => (i % 3 + 0.5) * cell, Y = (i) => (Math.floor(i / 3) + 0.5) * cell;
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">`;
+  for (let i = 0; i < 9; i++) s += `<circle cx="${X(i)}" cy="${Y(i)}" r="${idle}" fill="${p.b}"/>`;
+  const reach = progress * (pattern.length - 1);
+  for (let k = 0; k < pattern.length - 1 && k < reach; k++) {
+    const sh = Math.min(1, reach - k), a = pattern[k], b = pattern[k + 1];
+    const bx = X(a) + (X(b) - X(a)) * sh, by = Y(a) + (Y(b) - Y(a)) * sh;
+    s += `<line x1="${X(a)}" y1="${Y(a)}" x2="${bx}" y2="${by}" stroke="${p.a}" stroke-width="${line}" stroke-linecap="round"/>`;
+  }
+  for (let k = 1; k < pattern.length && k <= reach + 1e-3; k++) s += `<circle cx="${X(pattern[k])}" cy="${Y(pattern[k])}" r="${node}" fill="${p.a}"/>`;
+  s += `<circle cx="${X(pattern[0])}" cy="${Y(pattern[0])}" r="${node}" fill="${p.c}"/></svg>`;
+  return uri(s);
+}
+for (const [el, p] of [['trace', light], ['traceDark', dark]]) {
+  const host = document.getElementById(el);
+  host.style.display = 'flex'; host.style.gap = '14px';
+  for (const [pat, pr] of [[[0,4,8,5],0.35],[[0,4,8,5],0.7],[[0,4,8,5],1],[[6,3,1,5,8],1],[[2,4,3,7],1]]) {
+    const img = new Image(); img.width = 36; img.height = 36; img.src = glyph(pat, pr, p); host.appendChild(img);
+  }
+}
+</script></body></html>

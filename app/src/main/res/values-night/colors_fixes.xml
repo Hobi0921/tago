@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Action on the light inverse surface: 5:1. -->
+    <color name="surface_inverse">#E9E4EE</color>
+    <color name="on_surface_inverse">#1E1B26</color>
+    <color name="accent_inverse">#5B56A6</color>
+
+    <color name="strength_very_weak">#FF8A73</color>
+    <color name="strength_weak">#FFA45C</color>
+    <color name="strength_fair">#F5C35A</color>
+    <color name="strength_strong">#7FD3A0</color>
+    <color name="strength_very_strong">#5EE6D3</color>
+</resources>

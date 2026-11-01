@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Strong ease-out, cubic-bezier(0.23, 1, 0.32, 1). For anything entering or
+     responding to the user. Never use ease-in for UI. -->
+<pathInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:controlX1="0.23"
+    android:controlY1="1"
+    android:controlX2="0.32"
+    android:controlY2="1" />

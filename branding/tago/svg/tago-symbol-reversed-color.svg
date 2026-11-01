@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Tago symbol, reversed colour</title>
+  <g id="symbol">
+    <path fill="#FFF7F4" d="M64 51H192V77H64ZM115 64H141V192H115ZM107 64A21 21 0 1 1 149 64A21 21 0 1 1 107 64ZM171 64A21 21 0 1 1 213 64A21 21 0 1 1 171 64ZM107 128A21 21 0 1 1 149 128A21 21 0 1 1 107 128ZM107 192A21 21 0 1 1 149 192A21 21 0 1 1 107 192ZM53 128A11 11 0 1 1 75 128A11 11 0 1 1 53 128ZM181 128A11 11 0 1 1 203 128A11 11 0 1 1 181 128ZM53 192A11 11 0 1 1 75 192A11 11 0 1 1 53 192ZM181 192A11 11 0 1 1 203 192A11 11 0 1 1 181 192Z"/>
+    <path fill="#F0623A" d="M43 64A21 21 0 1 1 85 64A21 21 0 1 1 43 64Z"/>
+  </g>
+</svg>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="autofill_text_primary">#E6E1E5</color>
+    <color name="autofill_text_secondary">#A9A5AE</color>
+</resources>

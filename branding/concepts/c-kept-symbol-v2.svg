@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Kept, concept C: a lowercase k whose arm closes into a loop</title>
+  <!-- v2: the loop is the k's arm, not a circle on a stick (v1 read as a magnifier).
+       Arm = teardrop: tip P(80,152) on the stem, round end on circle (160,104) r=36, joined by
+       exact tangents (to 131,82.66 and 165.18,139.63). Leg at 45 degrees from the arm's lower
+       edge. Monoline 30, round caps; the whole letter shifted 6 left to centre its bounds. -->
+  <g id="symbol" transform="translate(-6 0)" fill="none" stroke="#111111" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 32V224"/>
+    <path d="M80 152L131 82.66A36 36 0 1 1 165.18 139.63Z"/>
+    <path d="M108 160L172 224"/>
+  </g>
+</svg>

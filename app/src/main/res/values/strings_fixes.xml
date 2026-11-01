@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fix #3: no-results search state. Merge into strings.xml. -->
+<resources>
+    <string name="vault_no_results_title">No logins match “%1$s”</string>
+    <string name="vault_no_results_detail">Check the spelling, or search by username or domain.</string>
+    <string name="copied">Copied</string>
+</resources>

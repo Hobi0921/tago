@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The shot's "We detected 22 passwords compromised!" reads "1 passwords" at count 1. -->
+<resources>
+    <plurals name="vault_breach_title">
+        <item quantity="one">%d password was found in a data breach</item>
+        <item quantity="other">%d passwords were found in data breaches</item>
+    </plurals>
+    <plurals name="health_stat_a11y">
+        <item quantity="one">%1$d %2$s password</item>
+        <item quantity="other">%1$d %2$s passwords</item>
+    </plurals>
+</resources>

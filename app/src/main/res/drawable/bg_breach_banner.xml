@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Indigo alert card with a soft wave in the bottom-right corner (decorative, low contrast). -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/banner_bg" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/deco_banner_wave"
+        android:gravity="bottom|end" android:width="140dp" android:height="72dp" />
+</layer-list>

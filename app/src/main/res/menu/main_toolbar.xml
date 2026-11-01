@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lock lives with the other actions at the end of the toolbar. In the
+     navigation-icon slot, where people expect back or a menu, a reflex tap
+     dropped them straight to the biometric prompt. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_lock"
+        android:icon="@drawable/ic_lock"
+        android:title="@string/vault_lock"
+        app:iconTint="@color/text_secondary"
+        app:showAsAction="always" />
+</menu>

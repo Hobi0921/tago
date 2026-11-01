@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Tago feature graphic</title>
+<style>
+  html, body { margin: 0; }
+  .fg { width: 1024px; height: 500px; background: #5B56A6; position: relative; overflow: hidden;
+        font-family: "Segoe UI", system-ui, sans-serif; color: #FFF7F4; }
+  /* Lockup 480 wide (203 tall; artwork spans 42-214 of its 256-unit height), tagline below it
+     with one node's gap, all left of the texture so nothing collides. */
+  .logo { position: absolute; left: 72px; top: 96px; }
+  .line { position: absolute; left: 96px; top: 316px; font-size: 30px; letter-spacing: -0.01em; }
+  /* The idle grid as texture: the identity's pattern, faint, bleeding off the right edge. */
+  .texture { position: absolute; right: -40px; top: -20px; opacity: 0.22; }
+</style></head>
+<body><div class="fg">
+  <svg class="texture" viewBox="0 0 384 576" width="384" height="576">
+    <defs><pattern id="dots" width="64" height="64" patternUnits="userSpaceOnUse">
+      <circle cx="32" cy="32" r="7" fill="#FFF7F4"/></pattern></defs>
+    <rect width="384" height="576" fill="url(#dots)"/>
+  </svg>
+  <img class="logo" src="../svg/tago-horizontal-white.svg" width="480" alt="Tago">
+  <div class="line">Your passwords, kept out of sight.</div>
+</div></body></html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Signet, concept B: a wax seal stamped with an asterisk</title>
+  <!-- Seal: circle C1 (116,116) r=92 joined to a wax spill C2 (196,200) r=30 with r=16 fillets
+       (tangent points computed, no notch at the junction). Asterisk: three r-capped bars,
+       22 wide, 88 long, at 90/30/150 degrees, centred on C1. Exploration file: the asterisk is
+       cut with a mask; bake it into the path for the master. -->
+  <defs>
+    <mask id="seal-cut">
+      <path fill="#fff" d="M200.65 152.03A92 92 0 1 0 147.87 202.3A16 16 0 0 1 168.22 211.29A30 30 0 1 0 208.63 172.8A16 16 0 0 1 200.65 152.03Z"/>
+      <g stroke="#000" stroke-width="22" stroke-linecap="round" fill="none">
+        <path d="M116 72V160"/>
+        <path d="M77.9 94L154.1 138"/>
+        <path d="M77.9 138L154.1 94"/>
+      </g>
+    </mask>
+  </defs>
+  <rect id="symbol" width="256" height="256" fill="#111111" mask="url(#seal-cut)"/>
+</svg>

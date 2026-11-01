@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="health_stat_not_checked">Compromised: not checked yet. Run a breach check below.</string>
+</resources>

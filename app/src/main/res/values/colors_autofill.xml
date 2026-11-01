@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fix #11: explicit autofill text colours. Point these at your own palette if you like,
+     but keep them independent of the app theme: RemoteViews render in the host app. -->
+<resources>
+    <color name="autofill_text_primary">#1C1B1F</color>
+    <color name="autofill_text_secondary">#5F5D66</color>
+</resources>
