@@ -1,135 +1,140 @@
-# Tago for Android (formerly PassVault)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="branding/tago/png/tago-horizontal-reversed-color-1208.png">
+    <img src="branding/tago/png/tago-horizontal-color-1208.png" alt="Tago" width="360">
+  </picture>
+</p>
 
-The app is now called **Tago** (Tagalog for "hidden, kept out of sight"). Only user-facing text and
-the icon changed: the code keeps its `com.passvault` package and application ID, so Tago installs
-over existing PassVault builds and old backups still restore. Brand files and their generators are
-in `branding/tago` (start with `guide/tago-logo-guide.pdf`).
+<p align="center"><b>Your passwords, kept out of sight.</b></p>
 
-An Android port of the JavaFX password manager, in Java with XML layouts.
-The three original files map across like this:
+<p align="center">
+  A password manager for Android that keeps every login encrypted on your phone,<br>
+  unlocked only by your fingerprint, face or screen lock.
+</p>
 
-| Desktop | Android |
-|---|---|
-| `PasswordEntry.java` | `data/PasswordEntry.java` — now a Room `@Entity` |
-| `PasswordFileHandler.java` | `data/AppDatabase.java` + `VaultRepository.java` — encrypted SQLite |
-| `PasswordStrengthChecker.java` | `util/PasswordStrengthChecker.java` — rewritten, entropy-based |
-| `MainController.java` | split across `ui/` fragments |
-| `style.css` | `res/values/colors.xml` + `themes.xml` — same palette |
+<p align="center">
+  <a href="https://github.com/StenisTired/tago/releases/latest"><b>Download the latest version</b></a>
+  &nbsp;·&nbsp; Android 8.0 or newer
+</p>
 
-## What changed, and why
+---
 
-**Storage.** The desktop version wrote `site|user|password|strength` to a plaintext
-file. On Android that file is readable by anything with root, and it lands in cloud
-backups by default. Passwords now live in a SQLCipher database (AES-256, page-level).
-The pipe delimiter is gone too — it corrupted any password containing `|`.
+## Why Tago
 
-**Key handling.** The database passphrase is 32 random bytes, generated once. It is
-never stored in the clear: it's wrapped with an AES-GCM key that lives in the Android
-Keystore under `setUserAuthenticationRequired(true)`, so the OS refuses to produce a
-working cipher until biometric or device-credential auth passes. On devices with a
-secure element the key never leaves it.
+Most of us reuse a few passwords everywhere, because remembering dozens of strong ones is
+impossible. Tago remembers them for you, fills them into your apps and websites, and helps you
+replace the weak and reused ones.
 
-**Strength scoring.** The old scorer counted length tiers and character classes, which
-rated `Password123!` as Very Strong. The new one estimates entropy from the character
-pool, then subtracts bits for the patterns that make passwords guessable: dictionary
-words after leet de-substitution, keyboard runs, sequences, repeats, years, and the
-capital-word-digits-symbol template. Passphrases get a separate word-based estimate,
-because counting characters rated `correct-horse-battery-staple` at 164 bits when the
-real figure is nearer 57.
+It does this without an account and without a cloud. Your vault lives only on your phone,
+encrypted, and only you can open it: not the developer, and not a server somewhere.
 
-Measured behaviour after the rewrite:
-
-```
-"Password123!"                  Very weak    22.0 bits   instantly
-"Manila2024!"                   Very weak    26.0 bits   instantly
-"correct-horse-battery-staple"  Strong       57.2 bits   9 days
-"7Kq!vX2mZ#pL9wRt"              Very strong 105.1 bits   longer than the universe has existed
-```
-
-**Strength is no longer stored.** It's derived on read, so improving the scorer
-re-rates every existing entry instead of leaving stale labels in the database.
+*Tago* is Tagalog for **"hidden, kept out of sight."** The logo is the letter T traced on
+Android's nine-dot unlock grid: the secret pattern only you know.
 
 ## Features
 
-- Biometric / device-credential unlock, with auto-lock after 60 seconds in the background
-- Encrypted vault with search, add, edit, delete
-- Live strength checker with entropy, crack-time estimate, and specific advice
-- Generator: configurable length and character classes, or a 1,492-word passphrase mode
-- Autofill in apps and browsers: fills logins (unlocking first if needed), offers a generated
-  password on sign-up and change-password forms, saves new logins and updates the existing
-  entry when a password is changed in another app (the old one goes to history)
-- `FLAG_SECURE` on both activities: no screenshots, no recents thumbnail
-- Clipboard marked sensitive and auto-cleared after 45 seconds
-- Cloud backup and device transfer explicitly disabled
+### Your vault
+- **Encrypted storage.** Every login is kept in an AES-256 encrypted database. The key that
+  opens it is protected by Android's Keystore (in dedicated security hardware on phones that
+  have it) and released only after your fingerprint, face or screen lock.
+- **Search, favourites and quick copy.** Find a login as you type, star the ones you use most,
+  and copy a password with one tap.
+- **Everything about a login in one place.** Username, password, website, notes and 2FA codes,
+  plus previous passwords if you ever need to go back.
+- **Auto-lock.** Locks itself when you leave the app: immediately, or after 30 seconds, 1, 5 or
+  15 minutes (1 minute by default).
 
-## Build
+### Fill and save in other apps
+- **Autofill in apps and browsers.** Your logins appear right in sign-in forms. If the vault is
+  locked, Tago asks for your fingerprint first.
+- **Saves new logins for you.** Sign in somewhere new and Tago offers to save it.
+- **Keeps up when you change a password.** Change a password in another app and Tago updates the
+  existing login instead of creating a duplicate. The old password is kept in its history.
+- **Works with most browsers,** including Chrome, Firefox, Edge, Brave, Samsung Internet, Opera and
+  DuckDuckGo.
 
-Requires Android Studio, JDK 17, `minSdk 26` (the autofill API's floor).
+### Strong passwords
+- **Generator.** Random passwords with the length and characters you choose, or easy-to-type
+  passphrases made of words. It also appears on sign-up forms as "Use a strong password".
+- **Strength checker.** Type any password to see how long it would take to crack and what makes
+  it weak. It catches the patterns real attackers try first, so `Password123!` is rated
+  *very weak*, not strong.
+
+### Password health
+- **A health score** for the whole vault, and a list of exactly what to fix.
+- **Finds reused and weak passwords,** and passwords you haven't changed in a long time.
+- **Breach check.** Checks whether your passwords have appeared in known data breaches, using
+  *Have I Been Pwned*, without ever sending a password (see Privacy below).
+- **2FA codes.** Store a login's authenticator key and Tago shows its current 6-digit code.
+
+### Safety details
+- **No screenshots.** Screens that show secrets can't be captured or recorded, and Tago's preview
+  in the recent-apps list stays blank.
+- **Clipboard cleared after 45 seconds,** and copied passwords are marked private so Android
+  doesn't show them in its clipboard preview.
+- **Masked by default.** Passwords stay hidden until you tap to reveal them, and hide again when
+  you leave.
+- **Encrypted backups.** Export your vault to a file protected by a passphrase you choose, and
+  restore it on a new phone.
+- **Light and dark themes,** following your phone's setting.
+
+## Install
+
+1. On your Android phone, open the
+   [latest release](https://github.com/StenisTired/tago/releases/latest) and download the
+   `.apk` file.
+2. Open it. If Android asks, allow installs from your browser or file manager.
+3. Open Tago and tap **Set up Tago**. It asks for your fingerprint or screen lock: that's what
+   unlocks your vault from then on.
+
+Tago isn't on the Play Store, so Android or Play Protect may warn you about an app from an
+unknown developer. That is normal for apps installed this way.
+
+### Get updates automatically
+Install [Obtainium](https://github.com/ImranR98/Obtainium), tap **Add app**, and paste:
 
 ```
-./gradlew assembleDebug
+https://github.com/StenisTired/tago
 ```
 
-Enable autofill after installing: **Settings → Passwords & accounts → Autofill service
-→ PassVault**. Android will not offer it until the app is installed and the vault has
-been set up once. In Chrome 135+, also turn on Chrome settings → Autofill services →
-"Autofill using another service"; other Chromium browsers and Samsung Internet work through
-Android's compatibility mode (Android 9+).
+Obtainium checks for new versions of Tago and installs them for you.
 
-## Things worth knowing before you rely on this
+## Getting started
 
-**Changing your screen lock or biometrics destroys the vault.** `setInvalidatedByBiometricEnrollment(true)`
-means enrolling a new fingerprint invalidates the Keystore key, and the wrapped
-passphrase becomes undecryptable. That is the correct security behaviour, but without
-an export feature it means data loss. Build encrypted export/import before you put
-real passwords in.
+1. **Turn on autofill.** The vault shows a card for it; tap **Turn on** and pick Tago in the
+   screen that opens. In Chrome, also turn on *Chrome settings → Autofill services → Autofill
+   using another service.*
+2. **Add your logins,** or just sign in to your apps and websites and let Tago offer to save them.
+3. **Make a backup.** Go to **Settings → Back up now** and keep the file somewhere safe.
 
-**No sync and no recovery.** The vault exists on one device only.
+## Before you rely on it
 
-**The word list is inlined.** 1,492 words at 10.5 bits each. A production build should
-ship the EFF 7776-word long list (12.9 bits/word) as an asset instead.
+- **Keep a backup.** Your vault exists on one phone only; there is no sync. If you lose the
+  phone, a backup file is the only way to get your passwords back.
+- **Changing your screen lock or fingerprints can lock you out.** That's a deliberate security
+  measure: new fingerprints must not be able to open an old vault. If it happens, Tago offers to
+  start a fresh vault and restore your backup into it.
+- **Moving to a new phone:** install Tago there, choose **I have a backup** on the welcome screen,
+  and pick your backup file.
 
-**The common-password list is small.** It catches the obvious cases. Real coverage
-means shipping a 10k-entry list, or swapping in the `zxcvbn` Kotlin port and calling
-it from Java.
+## Privacy
 
-## Version 2 additions
+Tago has no account, no ads and no analytics. Your passwords never leave your phone except in
+backup files you create yourself. It only goes online for two optional things:
 
-- **Encrypted export/import** (`security/VaultExporter.java`). PBKDF2-HMAC-SHA256 at
-  600k iterations, AES-256-GCM. Verified for round-trip fidelity, tamper detection,
-  and unique salt/IV per export. Restore is additive, so a mistyped filename cannot
-  destroy the vault.
-- **Vault health** (`audit/`). Reuse, weakness, and staleness offline; breach checking
-  on demand. Reuse outranks weakness because one site's breach compromises every
-  account sharing that password.
-- **Breach checking** (`net/BreachChecker.java`). Have I Been Pwned via k-anonymity:
-  only the first five characters of the SHA-1 leave the device. A failed check reports
-  as unknown, never as clean.
-- **TOTP** (`util/TotpGenerator.java`, `util/Base32.java`). Passes all five RFC 6238
-  test vectors.
-- **Password history** with a Room migration. Schema is v2, `exportSchema = true`, and
-  there is deliberately no destructive fallback.
-- **Recovery path** (`ui/UnlockActivity.java`). When the Keystore key is invalidated,
-  the unlock screen offers to erase the unreadable database, build a fresh vault and
-  open the restore picker. Without it, that state was a dead end.
-- **Backup visibility** (`data/AppPrefs.java`). Settings shows when the last export
-  happened; the vault shows a dismissible reminder while there has never been one.
-- **Auto-lock timeout** picker (immediately / 30s / 1m / 5m / 15m) and live autofill
-  status in Settings.
-- **Bottom navigation** across Vault / Health / Tools (Generate + Check) / Settings.
-  Tabs are kept alive and hidden/shown, so switching keeps search, scroll and results.
-- **Entry detail sheet** (`ui/EntryDetailSheet.java`). Copy username, password or the
-  live 2FA code, reveal, favorite, previous passwords, and Edit / Delete with Undo.
-- **Full-screen editor** (`ui/EntryEditorDialog.java`) with 2FA key and notes. Edits go
-  through `VaultRepository.applyEdit`, which loads the row first so fields the editor
-  does not show (`packageName`, `favorite`, `createdAt`) survive.
-- **Secure dialogs** (`ui/SecureWindows.java`). FLAG_SECURE is per window, so every
-  dialog and sheet that can show a secret sets it on its own window.
+- **Breach check** (only when you tap it). Tago sends the first 5 characters of a fingerprint of
+  each password (its SHA-1 hash) to *Have I Been Pwned*, and compares the results on your phone.
+  The password itself, and even its full hash, is never sent.
+- **Website logos.** To show a site's logo next to a login, Tago downloads it directly from that
+  website, never from a third-party icon service. You can turn this off in Settings.
 
-## Suggested next steps
+Cloud backup of the app's data is switched off, so your vault is never copied to Google's
+servers.
 
-1. Swipe-to-delete on vault rows via `ItemTouchHelper`
-2. Scan a QR code for the 2FA setup key instead of pasting it
-3. Swap PBKDF2 for Argon2id in the exporter and bump the envelope version
-4. Ship the EFF 7776-word list as an asset instead of the inlined 1,492 words
-5. Write a Room migration test against the exported schema JSON
+## For developers
+
+Tago is written in Java with Android Views and Material 3. Build notes, the security design and
+open ideas are in [DEVELOPMENT.md](DEVELOPMENT.md). Releases are built and signed by GitHub
+Actions when a version tag is pushed; see [RELEASING.md](RELEASING.md).
+
+<p align="center"><sub>Made by <a href="https://github.com/StenisTired">StenisTired</a>.</sub></p>
